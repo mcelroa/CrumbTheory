@@ -1,0 +1,59 @@
+## ####################################
+## .NET / Visual Studio Ignores
+## ####################################
+# User-specific files & build outputs
+*.user
+*.userosscache
+*.sln.docstates
+bin/
+obj/
+.vs/
+
+# Visual Studio 2015/2017/2019/2022 cache directories
+.vs/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+
+# Roslyn cache directories
+.lync/
+
+# CoreCLR debugger logs
+core.*
+
+## ####################################
+## React / Node.js / VS Code Ignores
+## ####################################
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Testing
+coverage/
+
+# Production build outputs
+dist/
+build/
+out/
+
+# VS Code workspace settings
+.vscode/*
+!.vscode/extensions.json
+.history/
+*.log
+
+## ####################################
+## Environment & Security Ignores
+## ####################################
+# Local environment variables containing secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# OS generated files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,41 @@
+@CrumbTheoryAPI_HostAddress = https://localhost:7200
+
+GET {{CrumbTheoryAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+POST {{CrumbTheoryAPI_HostAddress}}/api/bakeryitems
+Content-Type: application/json
+
+{
+  "name": "Red Velvet Cupcake",
+  "price": 4.50,
+  "secret": "pussy juice"
+}
+
+###
+
+GET {{CrumbTheoryAPI_HostAddress}}/api/bakeryitems
+
+###
+
+@id=81f48de4-6970-4b43-a860-95a2c60ef60f
+GET {{CrumbTheoryAPI_HostAddress}}/api/bakeryitems/{{id}}
+
+###
+
+PUT {{CrumbTheoryAPI_HostAddress}}/api/bakeryitems/{{id}}
+Content-Type: application/json
+
+{
+  "id": "81f48de4-6970-4b43-a860-95a2c60ef60f",
+  "name": "Red Velvet Baecake",
+  "price": 3.50
+}
+
+###
+
+DELETE {{CrumbTheoryAPI_HostAddress}}/api/bakeryitems/{{id}}
+
+###
