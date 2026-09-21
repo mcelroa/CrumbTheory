@@ -6,8 +6,8 @@ using CrumbTheoryAPI.Models;
 [ApiController]
 public class BakeryItemsController : ControllerBase
 {
-    private readonly CrumbTheoryContext _context;
-    public BakeryItemsController(CrumbTheoryContext context)
+    private readonly AppDbContext _context;
+    public BakeryItemsController(AppDbContext context)
     {
         _context = context;
     }

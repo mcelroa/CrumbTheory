@@ -57,3 +57,6 @@ out/
 # OS generated files
 .DS_Store
 Thumbs.db
+CrumbTheoryAPI/CrumbTheory.db
+CrumbTheoryAPI/CrumbTheory.db-shm
+CrumbTheoryAPI/CrumbTheory.db-wal

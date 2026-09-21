@@ -1,10 +1,5 @@
 @CrumbTheoryAPI_HostAddress = https://localhost:7200
 
-GET {{CrumbTheoryAPI_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
-
 POST {{CrumbTheoryAPI_HostAddress}}/api/bakeryitems
 Content-Type: application/json
 

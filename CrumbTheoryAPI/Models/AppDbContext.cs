@@ -2,9 +2,9 @@
 
 namespace CrumbTheoryAPI.Models;
 
-public class CrumbTheoryContext : DbContext
+public class AppDbContext : DbContext
 {
-    public CrumbTheoryContext(DbContextOptions<CrumbTheoryContext> options)
+    public AppDbContext(DbContextOptions<AppDbContext> options)
         : base(options)
     { 
     }
