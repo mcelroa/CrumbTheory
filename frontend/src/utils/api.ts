@@ -1,10 +1,32 @@
 import axios from "axios";
+import { getSession } from "./session";
 
 const api = axios.create({
    baseURL: "/api",
    headers: {
       "Content-Type": "application/json",
    },
+});
+
+api.interceptors.request.use((config) => {
+   const session = getSession();
+   if (session) {
+      config.headers.Authorization = `Bearer ${session.token}`;
+   }
+   return config;
+});
+
+let onUnauthorized: (() => void) | null = null;
+export const setUnauthorizedHandler = (handler: (() => void) | null) => {
+   onUnauthorized = handler;
+};
+
+api.interceptors.response.use(undefined, (error) => {
+   // An expired or rejected token: drop the session so the admin is sent back to login
+   if (axios.isAxiosError(error) && error.response?.status === 401 && getSession()) {
+      onUnauthorized?.();
+   }
+   return Promise.reject(error);
 });
 
 export default api;
