@@ -132,7 +132,7 @@ function ItemRow(props: {
          {item.imageUrl ? (
             <img src={item.imageUrl} alt="" className="h-14 w-14 rounded-xl object-cover" />
          ) : (
-            <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-caramel-light font-display text-2xl text-caramel">
+            <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-peach font-display text-2xl text-blush">
                {item.name.charAt(0)}
             </div>
          )}

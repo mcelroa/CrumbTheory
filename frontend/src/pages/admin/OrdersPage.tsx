@@ -4,10 +4,10 @@ import api from "../../utils/api";
 import { formatDate, formatPrice } from "../../utils/format";
 
 const STATUS_STYLES: Record<OrderStatus, string> = {
-   Pending: "bg-caramel-light text-crust-dark",
+   Pending: "bg-peach text-crust-dark",
    Confirmed: "bg-sky-100 text-sky-800",
    Ready: "bg-emerald-100 text-emerald-800",
-   Collected: "bg-stone-200 text-stone-600",
+   Collected: "bg-line text-muted",
    Cancelled: "bg-rose-100 text-rose-800",
 };
 

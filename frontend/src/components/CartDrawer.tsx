@@ -111,7 +111,7 @@ function QtyButton(props: { label: string; disabled: boolean; onClick: () => voi
          aria-label={props.label}
          disabled={props.disabled}
          onClick={props.onClick}
-         className="h-8 w-8 rounded-full text-lg leading-none hover:bg-caramel-light disabled:opacity-30 disabled:hover:bg-transparent"
+         className="h-8 w-8 rounded-full text-lg leading-none hover:bg-peach disabled:opacity-30 disabled:hover:bg-transparent"
       >
          {props.children}
       </button>
