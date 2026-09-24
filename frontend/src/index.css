@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme {
+   --font-display: "Fraunces", Georgia, serif;
+   --font-sans: "DM Sans", system-ui, sans-serif;
+
+   --color-cream: #faf5ec;
+   --color-paper: #fffcf6;
+   --color-line: #e9dcc7;
+   --color-ink: #3b2a1e;
+   --color-muted: #7a6555;
+   --color-crust: #b5562f;
+   --color-crust-dark: #97431f;
+   --color-caramel: #e9c38f;
+   --color-caramel-light: #f6e6cd;
+}
+
+@layer base {
+   body {
+      @apply bg-cream font-sans text-ink antialiased;
+   }
+
+   h1,
+   h2,
+   h3 {
+      @apply font-display;
+   }
+}
