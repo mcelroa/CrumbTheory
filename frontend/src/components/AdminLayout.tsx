@@ -21,6 +21,9 @@ export default function AdminLayout() {
                   <NavLink to="/admin/orders" className={navClass}>
                      Orders
                   </NavLink>
+                  <NavLink to="/admin/items" className={navClass}>
+                     Items
+                  </NavLink>
                </nav>
                <div className="ml-auto flex items-center gap-4 text-sm">
                   <Link to="/" className="text-muted hover:text-ink">

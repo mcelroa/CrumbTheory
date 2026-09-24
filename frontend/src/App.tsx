@@ -3,6 +3,7 @@ import AdminLayout from "./components/AdminLayout";
 import RequireAdmin from "./components/RequireAdmin";
 import StoreLayout from "./components/StoreLayout";
 import LoginPage from "./pages/admin/LoginPage";
+import ItemsPage from "./pages/admin/ItemsPage";
 import OrdersPage from "./pages/admin/OrdersPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import MenuPage from "./pages/MenuPage";
@@ -23,6 +24,7 @@ export default function App() {
                <Route element={<AdminLayout />}>
                   <Route index element={<Navigate to="orders" replace />} />
                   <Route path="orders" element={<OrdersPage />} />
+                  <Route path="items" element={<ItemsPage />} />
                </Route>
             </Route>
          </Routes>
