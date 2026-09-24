@@ -1,36 +1,91 @@
 @CrumbTheoryAPI_HostAddress = https://localhost:7200
 
-POST {{CrumbTheoryAPI_HostAddress}}/api/bakeryitems
+### Log in as admin (credentials come from user-secrets)
+# @name login
+POST {{CrumbTheoryAPI_HostAddress}}/api/auth/login
 Content-Type: application/json
 
 {
-  "name": "Red Velvet Cupcake",
-  "price": 4.50,
-  "secret": "pussy juice"
+  "username": "admin",
+  "password": "<your admin password>"
 }
 
 ###
+@token = {{login.response.body.$.token}}
 
+### Products (public)
 GET {{CrumbTheoryAPI_HostAddress}}/api/bakeryitems
 
 ###
 
-@id=81f48de4-6970-4b43-a860-95a2c60ef60f
+@id=<a bakery item id>
 GET {{CrumbTheoryAPI_HostAddress}}/api/bakeryitems/{{id}}
+
+### Products (admin)
+POST {{CrumbTheoryAPI_HostAddress}}/api/bakeryitems
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "name": "Lemon Drizzle Loaf",
+  "price": 8.00,
+  "description": "Zesty lemon sponge with a crunchy sugar glaze.",
+  "imageUrl": "https://example.com/lemon-drizzle.jpg",
+  "isAvailable": true
+}
 
 ###
 
 PUT {{CrumbTheoryAPI_HostAddress}}/api/bakeryitems/{{id}}
 Content-Type: application/json
+Authorization: Bearer {{token}}
 
 {
-  "id": "81f48de4-6970-4b43-a860-95a2c60ef60f",
-  "name": "Red Velvet Baecake",
-  "price": 3.50
+  "id": "{{id}}",
+  "name": "Red Velvet Cupcake",
+  "price": 4.75,
+  "description": "Soft cocoa sponge topped with cream cheese frosting.",
+  "isAvailable": false
 }
 
 ###
 
 DELETE {{CrumbTheoryAPI_HostAddress}}/api/bakeryitems/{{id}}
+Authorization: Bearer {{token}}
+
+### Place an order (public, pay on collection)
+POST {{CrumbTheoryAPI_HostAddress}}/api/orders
+Content-Type: application/json
+
+{
+  "customerName": "Jane Doe",
+  "email": "jane@example.com",
+  "phone": "07700 900123",
+  "pickupDate": "2030-01-15",
+  "notes": "Birthday cake, please add a candle",
+  "items": [
+    { "bakeryItemId": "{{id}}", "quantity": 2 }
+  ]
+}
+
+### Orders (admin)
+GET {{CrumbTheoryAPI_HostAddress}}/api/orders?status=Pending
+Authorization: Bearer {{token}}
+
+###
+
+@orderId=<an order id>
+GET {{CrumbTheoryAPI_HostAddress}}/api/orders/{{orderId}}
+Authorization: Bearer {{token}}
+
+###
+
+PATCH {{CrumbTheoryAPI_HostAddress}}/api/orders/{{orderId}}/status
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "status": "Confirmed"
+}
 
 ###
